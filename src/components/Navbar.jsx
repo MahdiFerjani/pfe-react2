@@ -1,19 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import LoginModal from "./LoginModal"
+
+
+
 class Navbar extends React.Component{
-  state = {
-     modalOpen: false
-  }
-
-  handleModalOpen = () => {
-     this.setState((prevState) => {
-        return{
-           modalOpen: !prevState.modalOpen
-        }
-     })
-  }
-
+  
 
 render() {
   return (
@@ -77,21 +68,19 @@ render() {
                       <NavLink
                         activeClassName="menu_active"
                         className="nav-link"
-                        to="/mmdmd" onClick={this.handleModalOpen} 
+                        to="/login"
                       >
                         Connectez vous?
                       </NavLink>
                       
                
                     </li>
+                   
                   </ul>
                 </div>
               </div>
             </nav>
-            <LoginModal
-           modalOpen={this.state.modalOpen}
-           handleModalOpen={this.handleModalOpen}
-        />
+       
           </div>
         </div>
       </div>
