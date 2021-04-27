@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import Navbar from "./components/Navbar"
 const Contact = () => {
   const [data, setData] = useState({
     fullname: "",
@@ -28,6 +28,7 @@ const Contact = () => {
 
   return (
     <>
+    <Navbar/>
       <div className="my-5">
         <h1 className="text-center"> Contact US </h1>
       </div>

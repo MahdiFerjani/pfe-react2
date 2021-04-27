@@ -2,13 +2,12 @@ import React ,{useState} from "react";
 import {NavLink} from 'react-router-dom'
 import Signup from './components/Signup'
 import Axios from 'axios'
-
-
+import { useHistory } from "react-router-dom";
 
 export default function Login() {
   const [modalShow, setModalShow] = React.useState(false);
-  
   const url="http://127.0.0.1:3333/login"
+  let history = useHistory();
   const [Data,setData]= useState({
     
       email :"",
@@ -26,7 +25,8 @@ export default function Login() {
 
     })
     .then(res=>{
-        localStorage.setItem('token',res.data.token)}
+        localStorage.setItem('token',res.data.token)
+      history.push('/Dashboard')}
 
        
     )
