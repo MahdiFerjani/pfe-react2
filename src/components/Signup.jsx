@@ -7,7 +7,7 @@ import {useState} from 'react'
 
  export function Signup(props) {
 
-    const url="http://127.0.0.1:3333/users"
+    const url="http://127.0.0.1:3333/signup"
     const [Data,setData]= useState({
         username:"",
         email :"",

@@ -6,6 +6,8 @@ import Service from "./Service";
 import Contact from "./Contact";
 import Login  from "./Login"
 import Chart from "./components/Dashboard/Chart"
+import Category from "./components/Dashboard/Category"
+import NestedList from "./components/Dashboard/Categorie"
 import Encaissement from "./components/Dashboard/encaissement"
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle"
@@ -13,6 +15,7 @@ import "./Styles/Dashboard.css";
 import LoggedNavbar from "./components/Navbar/LoggedNavbar";
 import Sidebar from "./components/sidebar/Sidebar";
 import "./Styles/Main.css"
+import Categorie from "./components/Dashboard/Categorie";
 
 function App(){
     function isLoggedIn() {
@@ -43,7 +46,7 @@ return(
 <Route exact path="/encaissement" component={() => (!isLoggedIn() ? <Redirect to="/login" />:<Encaissement/>)}/>
 <Route exact path="/dashboard" component={() => (!isLoggedIn() ? <Redirect to="/login" /> : <Chart/>)}/>
 
-<Route exact path="/dashboard/opération" component={() => (!isLoggedIn() ? <Redirect to="/login" /> : <Chart/>)}/>
+<Route exact path="/operation" component={() => (!isLoggedIn() ? <Redirect to="/login" /> : <Categorie/>)}/>
 </main>
 <Sidebar sidebarOpen={sidebarOpen} closeSidebar={closeSidebar} />
 </div>
