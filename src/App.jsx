@@ -1,13 +1,12 @@
 import React ,{useState}from "react";
 import { Route, Switch,Redirect} from "react-router";
-
+import Register from "./components/register"
 import Home from "./Home";
 import Service from "./Service";
 import Contact from "./Contact";
 import Login  from "./Login"
 import Chart from "./components/Dashboard/Chart"
 import Category from "./components/Dashboard/Category"
-import NestedList from "./components/Dashboard/Categorie"
 import Encaissement from "./components/Dashboard/encaissement"
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle"
@@ -26,7 +25,7 @@ function App(){
       }
       const [sidebarOpen, setsidebarOpen] = useState(false);
       const openSidebar = () => {
-        setsidebarOpen(true);
+        setsidebarOpen(!sidebarOpen);
       };
       const closeSidebar = () => {
         setsidebarOpen(false);
@@ -40,13 +39,13 @@ return(
 <Route exact path="/service" component={Service}/> 
 <Route exact path="/contact" component={Contact}/>
 <Route exact path="/login" component={Login}/>
+<Route exact path="/register" component={Register}/>
 <div className="container2">
 <LoggedNavbar sidebarOpen={sidebarOpen} openSidebar={openSidebar} />
 <main>
 <Route exact path="/encaissement" component={() => (!isLoggedIn() ? <Redirect to="/login" />:<Encaissement/>)}/>
 <Route exact path="/dashboard" component={() => (!isLoggedIn() ? <Redirect to="/login" /> : <Chart/>)}/>
-
-<Route exact path="/operation" component={() => (!isLoggedIn() ? <Redirect to="/login" /> : <Categorie/>)}/>
+<Route exact path="/category" component={() => (!isLoggedIn() ? <Redirect to="/login" /> : <Category/>)}/>
 </main>
 <Sidebar sidebarOpen={sidebarOpen} closeSidebar={closeSidebar} />
 </div>

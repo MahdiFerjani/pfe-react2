@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import "../../Styles/Sidebar.css";
+import homme from "../../images/homme1.png"
 import React  from "react";
 const Sidebar = ({ sidebarOpen, closeSidebar }) => {
  
@@ -8,8 +9,8 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
     <div className={sidebarOpen ? "sidebar_responsive" : ""} id="sidebar">
       <div className="sidebar__title">
         <div >
-          
-          <h1>Company name</h1>
+        <img src={homme} alt="logo" />
+          <h1>Code Hut</h1>
         </div>
         <i
           onClick={() => closeSidebar()}
@@ -20,25 +21,52 @@ const Sidebar = ({ sidebarOpen, closeSidebar }) => {
       </div>
 
       <div className="sidebar__menu">
-        <div className="sidebar__link active_menu_link">
-          <i className="fa fa-home"></i>
-          <NavLink to="/Dashboard">
+      <NavLink style={{ textDecoration: 'none', fontWeight: 700, color: '#a5aaad'}} to="/Dashboard" 
+      activeClassName="sidebar__link active_menu_link">
+    
+        <i style={{marginRight: '10px'}} class="fa fa-bar-chart" aria-hidden="true"></i>
+           
             Dashboard
-          </NavLink>
-        </div>
+         
+        </NavLink>
         <h2>Tables</h2>
-        <div className="sidebar__link ">
-          <i className="fa fa-user-secret" aria-hidden="true"></i>
-        <NavLink to="/encaissement">Encaissement</NavLink>
-        </div>
-        <div className="sidebar__link">
-          <i className="fa fa-building-o"></i>
-          <a to="">Décaissement</a>
-        </div>
-        <div className="sidebar__link">
-          <i className="fa fa-wrench"></i>
-          <a to="">Objectifs</a>
-        </div>
+        <br/>
+        
+        <NavLink style={{ textDecoration: 'none', fontWeight: 700, color: '#a5aaad'}} to="/encaissement" 
+      activeClassName="sidebar__link active_menu_link">
+    
+        <i style={{marginRight: '10px'}} class="fa fa-bar-chart" aria-hidden="true"></i>
+           
+            encaissement
+         
+      
+        </NavLink>
+        <br/>
+        <br/>
+
+       
+        <NavLink style={{ textDecoration: 'none', fontWeight: 700, color: '#a5aaad'}} to="/category" 
+      activeClassName="sidebar__link active_menu_link">
+    
+        <i style={{marginRight: '10px'}} class="fa fa-bar-chart" aria-hidden="true"></i>
+           
+            decaissement
+         
+      
+        </NavLink>
+        <br/>
+        <br/>
+
+
+        <NavLink style={{ textDecoration: 'none', fontWeight: 700, color: '#a5aaad'}} to="/objectif" 
+      activeClassName="sidebar__link active_menu_link">
+    
+        <i style={{marginRight: '10px'}} class="fa fa-bar-chart" aria-hidden="true"></i>
+        prévisions
+         
+      
+        </NavLink>
+      
         <div className="sidebar__logout">
           <i className="fa fa-power-off"></i>
           <NavLink to='/' onClick={()=>localStorage.clear()}>Log out</NavLink>
